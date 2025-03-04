@@ -6,11 +6,11 @@
   </div>
 
 
-<div class="quizz_questions">
+<div class="quizz_questions" *ngIf="!finished">
   <h3>{{ questionSelected.question }}</h3>
 </div>
 
-<div class="quizz_options">
+<div class="quizz_options" *ngIf="!finished">
   <button class="btn-option" *ngFor="let option of questionSelected.options; let i = index"
   (click)="onPlayerChoice(option.alias)">
     {{ option.name }}
@@ -19,7 +19,7 @@
 
 <div class="quizz_results" *ngIf="finished">
   <h1>O seu resultado é:</h1>
-  <p>Resposta Selecionada</p>
+  <p>{{ answerSelected }}</p>
 </div>
 
 </div>
